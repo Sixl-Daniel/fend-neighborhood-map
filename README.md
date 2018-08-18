@@ -89,3 +89,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.
 
 * A template to make good `README.md`  
 https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
+* How to use Semantic UI with a custom theme in your CRA app  
+https://jsramblings.com/2018/03/04/how-to-use-semantic-ui-with-a-custom-theme-in-your-CRA-app.html
