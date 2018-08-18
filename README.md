@@ -6,6 +6,8 @@
 
 ## Table of contents
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Sixl-Daniel/fend-neighborhood-map.svg)](https://greenkeeper.io/)
+
 - [Getting Started](#getting-started)
 - [Deployment](#deployment)
 - [Built With](#built-with)
