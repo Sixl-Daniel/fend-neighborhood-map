@@ -1,7 +1,7 @@
 <div align="center">
     <h1>🗺️<br>Neighborhood Map</h1>
     <p><strong>Neighborhood Map</strong> is the eighth project for the <strong>Udacity Frontend Developer Nanodegree Program.</strong></p>
-    <!-- <p><strong><a href="">⭐ Show a demo of this app ⭐</a></strong></p> -->
+    <p><strong><a href="https://fend-neighborhood-map.netlify.com/" target="_blank" rel="noopener noreferrer">⭐ Show a demo of this app ⭐</a></strong></p>
 </div>
 
 ## Table of contents
