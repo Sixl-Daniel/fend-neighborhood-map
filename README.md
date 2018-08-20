@@ -5,6 +5,8 @@
 </div>
 
 ## Table of contents
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSixl-Daniel%2Ffend-neighborhood-map.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSixl-Daniel%2Ffend-neighborhood-map?ref=badge_shield)
+
 
 - [Getting Started](#getting-started)
 - [Deployment](#deployment)
@@ -84,6 +86,9 @@ As part of [Udacity Honor Code](https://www.udacity.com/legal/community-guidelin
 &copy; 2018 Daniel Sixl
 
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSixl-Daniel%2Ffend-neighborhood-map.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSixl-Daniel%2Ffend-neighborhood-map?ref=badge_large)
 
 ## Acknowledgments
 
