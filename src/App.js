@@ -49,7 +49,6 @@ export default class App extends Component {
             .catch(error => {
                 const errorMsg = 'Error occured while fetching data from Foursquare'
                 toast.error(errorMsg + '.');
-                // console.error(errorMsg + ':\n' + error);
                 this.setState({
                     dataLoading: false
                 });
