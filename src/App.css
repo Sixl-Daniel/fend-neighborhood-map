@@ -1,0 +1,56 @@
+h1,
+.ui.header,
+.text-serif {
+    font-family: 'Merriweather', Palatino, 'Palatino Linotype', 'Hoefler Text', Times, 'Times New Roman', serif
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(60deg) translate(-2rem, -1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translate(0, 0);
+    }
+}
+
+#page-logo {
+    margin-top: 1rem;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: 400ms ease-out 600ms forwards fadeIn;
+}
+
+#map-wrapper,
+#map {
+    width: 100%;
+    height: 100vh;
+}
+
+#column-restaurants {
+    background-color: #182530;
+    padding: 2rem 1rem;
+}
+
+#column-map {
+    background: linear-gradient(to bottom, #334859 0%, #1f2f3c 100%);
+    box-shadow: inset 0 0 240px 16px rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+    #column-restaurants {
+        height: 100vh;
+        overflow-y: scroll;
+        background: #182530 url(./images/background.jpg) no-repeat bottom center scroll;
+        background-size: cover;
+        padding: 1rem 1rem 1rem 2rem;
+        border-right: 2px solid #2b3e4d;
+    }
+    #column-map {
+        padding: 0;
+    }
+}

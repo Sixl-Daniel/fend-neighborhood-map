@@ -92,3 +92,6 @@ https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
 * How to use Semantic UI with a custom theme in your CRA app  
 https://jsramblings.com/2018/03/04/how-to-use-semantic-ui-with-a-custom-theme-in-your-CRA-app.html
+
+* How to load the google maps api `<script>` in my react app only when it is required?
+https://stackoverflow.com/questions/41709765/how-to-load-the-google-maps-api-script-in-my-react-app-only-when-it-is-require/41710341

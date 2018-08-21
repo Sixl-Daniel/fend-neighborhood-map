@@ -298,7 +298,8 @@
 @activeItemColor: @selectedTextColor;
 
 /* Selected */
-@selectedBackground: @subtleTransparentBlack;
+// @selectedBackground: @subtleTransparentBlack;
+@selectedBackground: #e5e5e5;
 @selectedColor: @selectedTextColor;
 
 /* Error */
