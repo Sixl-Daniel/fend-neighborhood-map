@@ -87,6 +87,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.
 
 ## Acknowledgments
 
+* Using Axios with React
+https://alligator.io/react/axios-react/
+
 * A template to make good `README.md`  
 https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
@@ -95,3 +98,9 @@ https://jsramblings.com/2018/03/04/how-to-use-semantic-ui-with-a-custom-theme-in
 
 * How to load the google maps api `<script>` in my react app only when it is required?
 https://stackoverflow.com/questions/41709765/how-to-load-the-google-maps-api-script-in-my-react-app-only-when-it-is-require/41710341
+
+* How to serialize an Object into a list of URL query parameters?
+https://stackoverflow.com/questions/6566456/how-to-serialize-an-object-into-a-list-of-url-query-parameters
+
+* Resize svg icon for google map marker
+https://stackoverflow.com/questions/23264872/resize-svg-icon-for-google-map-marker
