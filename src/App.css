@@ -1,6 +1,9 @@
 h1,
 .ui.header,
 .maps-info-window h2,
+.food-list-item h3,
+.ui.styled.accordion .accordion .title,
+.ui.styled.accordion .title,
 .text-serif {
     font-family: 'Merriweather', Palatino, 'Palatino Linotype', 'Hoefler Text', Times, 'Times New Roman', serif
 }
@@ -17,10 +20,13 @@ h1,
 }
 
 #page-logo {
-    margin-top: 1rem;
     opacity: 0;
     will-change: transform, opacity;
     animation: 400ms ease-out 600ms forwards fadeIn;
+}
+
+#page-heading {
+    margin: 0rem 1rem 2rem;
 }
 
 #map-wrapper,
@@ -32,9 +38,16 @@ h1,
     border: none;
 }
 
+#map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #column-restaurants {
     background-color: #182530;
     padding: 2rem 1rem;
+    box-shadow: inset 0 0 120px 8px rgba(255, 255, 255, 0.1);
 }
 
 #column-map {
@@ -43,7 +56,8 @@ h1,
 }
 
 .maps-info-window {
-    max-width: 240px;
+    min-width: 180px;
+    max-width: 270px;
 }
 
 .maps-info-window h2 {
@@ -60,6 +74,42 @@ h1,
     color: #008000;
 }
 
+.food-list-item .ui.segment.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-list-item .ui.segment p:last-of-type {
+    margin-bottom: 0;
+}
+
+.list-places-entry .category-icon {
+    float: right;
+}
+
+.ui.styled.accordion .accordion .title,
+.ui.styled.accordion .title {
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.ui.styled.accordion .active.title {
+    color: #d31a0d;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+.ui.styled.accordion .content.active {
+    background-color: rgba(32, 48, 61, 0.05);
+    padding: 1em 2em 1em 2em;
+}
+
+.ui.input,
+.ui.dropdown {
+    margin-bottom: 1rem;
+}
+
 @media screen and (min-width: 768px) {
     body {
         overflow: hidden;
@@ -69,7 +119,7 @@ h1,
         overflow-y: scroll;
         background: #182530 url(./images/background.jpg) no-repeat bottom center scroll;
         background-size: cover;
-        padding: 1rem 1rem 1rem 2rem;
+        padding: 1rem 1rem 3rem 2rem;
         border-right: 2px solid #2b3e4d;
     }
     #column-map {

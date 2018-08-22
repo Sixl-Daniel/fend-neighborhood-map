@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import { ApolloProvider } from "react-apollo";
-// import { Query } from "react-apollo";
-import { Dropdown, Grid, Header, Image, Loader, Segment } from 'semantic-ui-react';
+import { Grid, Header, Image, Input, Loader, Segment } from 'semantic-ui-react';
 import { toast, ToastContainer } from 'react-toastify';
 
+import ListPlaces from './components/List';
 import Map from './components/Map';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,21 +13,29 @@ import { FoursquareAPI as Foursquare } from './api/api';
 
 export default class App extends Component {
     state = {
-        selected: null,
         query: 'vegan',
-        city: 'Nürnberg',
+        near: 'Nürnberg',
         places: [],
-        dataLoading: true
+        selectedPlace: null,
+        filterQuery: '',
+        dataLoading: true,
+        results: false
     }
+
+    // mounted
 
     componentDidMount() {
-        this.getFoursquareData(this.state.query, this.state.city);
+        this.getFoursquareData(this.state.query, this.state.near);
     }
 
-    getFoursquareData(query, city) {
+    // fetch data from Foursquare
+
+    getFoursquareData(query, near) {
         const queryParameters = {
-            query: query,
-            near: city
+            query,
+            near,
+            radius: 3600,
+            limit: 36
         };
 
         Foursquare.get('venues/explore?' + new URLSearchParams(queryParameters))
@@ -36,7 +43,8 @@ export default class App extends Component {
                 const places = json.data.response.groups[0].items;
                 if (places.length){
                     this.setState({
-                        places,
+                        places: places,
+                        results: true,
                         dataLoading: false
                     });
                 } else {
@@ -47,52 +55,98 @@ export default class App extends Component {
                 }
             })
             .catch(error => {
-                const errorMsg = 'Error occured while fetching data from Foursquare'
-                toast.error(errorMsg + '.');
+                toast.error('Error occured while fetching data from Foursquare.');
                 this.setState({
                     dataLoading: false
                 });
             });
     }
 
-    render() {
-        const { places, dataLoading } = this.state;
+    // provide fetched data via functions
 
-        const dropdownOptions = [];
+    getFilteredPlaces() {
+        if (this.state.results) {
+            const places = this.state.places;
+            const filter = this.state.filterQuery;
+            if (filter.length) {
+                return places.filter(place => place.venue.name.toLowerCase().indexOf(filter.trim().toLowerCase()) !== -1);
+            } else {
+                return places;
+            }
+        } else {
+            return [];
+        }
+    }
 
-        places.forEach(place => {
-            place = place.venue;
-            dropdownOptions.push(
-                { key: `${place.id}`, value: `${place.id}`, text: `${place.name}`}
-            );
+    getUnfilteredDropdownOptions() {
+        if (this.state.results) {
+            const places = this.state.places;
+            const dropdownOptions = [];
+            places.forEach(place => {
+                const p = place.venue;
+                dropdownOptions.push(
+                    { key: `${p.id}`, value: `${p.id}`, text: `${p.name}` }
+                );
+            });
+            return dropdownOptions;
+        } else {
+            return [];
+        }
+    }
+
+    // events
+
+    onChangeFilterLocations = (event, data) => {
+        this.setState({
+            filterQuery: data.value
         });
+    }
+
+    onChangeSelectLocation = (index) => {
+        this.setState({
+            selectedPlace: index
+        });
+    }
+
+    // render
+
+    render() {
+        const
+            { dataLoading, results, selectedPlace } = this.state,
+            places = this.getFilteredPlaces();
 
         return (
+
             <Grid as='main' className="App" stackable centered reversed='mobile' verticalAlign='top'>
                 <Grid.Row className="row--main-content">
+
+                    {/* Filterable list of locations */}
+
                     <Grid.Column width={5} id='column-restaurants'>
-                            <Image id="page-logo" centered size='tiny' src={Logo} />
-                            <Header dividing inverted as='h1' textAlign='center'>
-                                Vegan & Vegetarian Food in Nürnberg
-                            </Header>
-                        <Dropdown placeholder='Select location' fluid search deburr selection options={dropdownOptions} />
-                            <Segment>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt delectus culpa vitae. Ad cum sapiente dolore provident eius et minus. Minima reprehenderit, unde aperiam omnis velit similique illo quis nihil vitae. Dolorum, numquam eveniet? Inventore enim fugiat quidem tenetur ullam natus nostrum nemo tempore esse omnis sed illo, saepe quasi reprehenderit dolore animi itaque iste officiis at est, veritatis harum accusantium placeat. Quod dignissimos ad tempora iure sed fugit obcaecati quia necessitatibus nulla nemo illum, repudiandae magni maiores dicta? Dolorum illo non ipsa reprehenderit excepturi pariatur, quisquam unde dolore quo tempore aliquid delectus corrupti commodi eveniet exercitationem, praesentium fugit nulla.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt delectus culpa vitae. Ad cum sapiente dolore provident eius et minus. Minima reprehenderit, unde aperiam omnis velit similique illo quis nihil vitae. Dolorum, numquam eveniet? Inventore enim fugiat quidem tenetur ullam natus nostrum nemo tempore esse omnis sed illo, saepe quasi reprehenderit dolore animi itaque iste officiis at est, veritatis harum accusantium placeat. Quod dignissimos ad tempora iure sed fugit obcaecati quia necessitatibus nulla nemo illum, repudiandae magni maiores dicta? Dolorum illo non ipsa reprehenderit excepturi pariatur, quisquam unde dolore quo tempore aliquid delectus corrupti commodi eveniet exercitationem, praesentium fugit nulla.</p>
-                            </Segment>
+                        <Image id="page-logo" centered size='tiny' src={Logo} />
+                        <Header id="page-heading" inverted as='h1' textAlign='center'>
+                            Vegan & Vegetarian Food in Nürnberg
+                        </Header>
+                        <Input onChange={this.onChangeFilterLocations} icon='filter' iconPosition='left' placeholder='Filter locations' fluid />
+                        {results ? <ListPlaces places={places} activeIndex={selectedPlace} onChangeSelectLocation={this.onChangeSelectLocation} /> : null}
                     </Grid.Column>
+
+                    {/* Map of locations */}
+
                     <Grid.Column width={11} id='column-map'>
                         <Segment basic id='map-wrapper' role="application" aria-roledescription="Map with markers for vegetarian restaurants">
-                            {places.length && (<Map places={places} />)}
-                            {dataLoading && (<Loader inverted active size='large' content='Loading data' />)}
+                            {results ? <Map places={places} selectedPlace={selectedPlace} onChangeSelectLocation={this.onChangeSelectLocation} /> : null}
+                            {dataLoading ? <Loader inverted active size='large' content='Loading data' /> : null}
                         </Segment>
                     </Grid.Column>
+
                 </Grid.Row>
                 <ToastContainer
                     position="top-right"
                     autoClose={8000}
                 />
             </Grid>
+
         );
     }
 }
