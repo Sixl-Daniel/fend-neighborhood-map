@@ -79,9 +79,18 @@ You can use a static web hosting service like [surge](http://surge.sh/), [netlif
 
 ## Built With
 
+### Software
+
 * [Create React App](https://github.com/facebook/create-react-app)
 * [Semantic-UI-React](https://github.com/Semantic-Org/Semantic-UI-React)
 * [React Toastify](https://github.com/fkhadra/react-toastify)
+
+### API's
+
+* [Google Maps](https://cloud.google.com/maps-platform/maps/)
+* [Foursquare](https://developer.foursquare.com/)
+
+### Services
 
 <a href="https://www.netlify.com">
   <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"/>
