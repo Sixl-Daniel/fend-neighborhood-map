@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Accordion, List } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
 
-import { FoursquareAPI as Foursquare } from '../api/api';
+import { FoursquareAPI } from '../api/api';
+import { FoursquareClientId } from '../api/api';
+import FourSquareAttribution from '../images/foursquare-attribution/powered-by-foursquare-grey.svg';
 
 class ListPlaces extends Component {
 
@@ -42,6 +44,15 @@ class ListPlaces extends Component {
                                     <List.Header>Category</List.Header>
                                     <List.Description>{cat.name}</List.Description>
                                 </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <List.Icon color='red' name='foursquare' size='large' verticalAlign='middle' />
+                                <List.Content>
+                                    <a target='_blank' href={'https://foursquare.com/v/' + p.name + '/' + p.id + '?ref=' + FoursquareClientId}>Visit page on Foursquare</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <img class='foursquare-attribution' src={FourSquareAttribution} alt='Powered by Foursquare' />
                             </List.Item>
                         </List>
                     </Accordion.Content>

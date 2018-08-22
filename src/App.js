@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Grid, Header, Image, Input, Loader, Segment } from 'semantic-ui-react';
 import { toast, ToastContainer } from 'react-toastify';
 
+import { FoursquareAPI } from './api/api';
+
 import ListPlaces from './components/List';
-import Map from './components/Map';
+import GoogleMap from './components/Map';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-
 import Logo from './images/pepper.svg';
-import { FoursquareAPI as Foursquare } from './api/api';
+
 
 export default class App extends Component {
     state = {
@@ -38,7 +39,7 @@ export default class App extends Component {
             limit: 36
         };
 
-        Foursquare.get('venues/explore?' + new URLSearchParams(queryParameters))
+        FoursquareAPI.get('venues/explore?' + new URLSearchParams(queryParameters))
             .then(json => {
                 const places = json.data.response.groups[0].items;
                 if (places.length){
@@ -135,7 +136,7 @@ export default class App extends Component {
 
                     <Grid.Column width={11} id='column-map'>
                         <Segment basic id='map-wrapper' role="application" aria-roledescription="Map with markers for vegetarian restaurants">
-                            {results ? <Map places={places} selectedPlace={selectedPlace} onChangeSelectLocation={this.onChangeSelectLocation} /> : null}
+                            {results ? <GoogleMap places={places} selectedPlace={selectedPlace} onChangeSelectLocation={this.onChangeSelectLocation} /> : null}
                             {dataLoading ? <Loader inverted active size='large' content='Loading data' /> : null}
                         </Segment>
                     </Grid.Column>

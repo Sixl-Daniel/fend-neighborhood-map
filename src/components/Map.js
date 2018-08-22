@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { toast } from 'react-toastify';
 
+import { FoursquareClientId, GoogleMapsApiUrl } from '../api/api';
+
 import MapStyle from '../MapStyle';
 import Pepper from '../images/pepper.svg';
 import PepperMark from '../images/pepper-mark.svg';
+import FourSquareAttribution from '../images/foursquare-attribution/powered-by-foursquare-grey.svg';
 
-class Map extends Component {
+class GoogleMap extends Component {
 
     componentDidMount() {
-        const googleMapsSrc = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCA5F0pGoVUQo0ZTtUInz6Kd_XfmOW3rAI&callback=onGoogleMapsLoaded';
+        const googleMapsSrc = GoogleMapsApiUrl;
         window.onGoogleMapsLoaded = this.onGoogleMapsLoaded;
         loadScript(googleMapsSrc);
         window.setTimeout(() => {
@@ -56,6 +59,11 @@ class Map extends Component {
             const scaledSizeX = selectedPlace === index ? '72' : '36';
             const scaledSizeY = selectedPlace === index ? '144' : '72';
 
+            console.log(p)
+
+            const foursquareLink = 'https://foursquare.com/v/' + encodeURIComponent(p.name) + '/' + p.id + '?ref=' + FoursquareClientId;
+
+
             const infoWindowContent =
             `
             <div class="maps-info-window">
@@ -67,6 +75,15 @@ class Map extends Component {
                     ${p.location.country}
                 </p>
                 <p class='category'>${cat.name}</p>
+                <p class='foursquare-link'>
+                    <a target='_blank' href=${foursquareLink}>
+                        <i aria-hidden='true' class='red foursquare large icon middle aligned'></i> Visit page on Foursquare
+                    </a>
+                </p>
+                <div class='ui divider'></div>
+                <p class='foursquare-attribution'>
+                    <img class='foursquare-attribution' src=${FourSquareAttribution} alt='Powered by Foursquare' />
+                </p>
             </div>
             `;
             const infoWindow = new GM.InfoWindow({
@@ -104,7 +121,7 @@ class Map extends Component {
     }
 }
 
-export default Map;
+export default GoogleMap;
 
 const loadScript = (src) => {
     const ref = window.document.getElementsByTagName("script")[0];
