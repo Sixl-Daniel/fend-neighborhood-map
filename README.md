@@ -70,10 +70,10 @@ Then point your browser to [http://localhost:3000/]() to see the app.
 Build the app for production to the `/build` folder:
 
 ```console
-foo@bar:~$ npm run build
+foo@bar:~$ npm run build-ui && npm run build
 ```
 
-Open your `package.json` and edit the homepage field. The app is now ready to be deployed. 
+Open your `package.json` and add a homepage field, if needed. The app is now ready to be deployed. 
 
 You can use a static web hosting service like [surge](http://surge.sh/), [netlify](https://www.netlify.com/), [GitHub Pages](https://pages.github.com/) or [Zeit](https://zeit.co/) for fast and easy publishing.
 
