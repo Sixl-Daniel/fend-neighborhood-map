@@ -50,23 +50,6 @@ class ListPlaces extends Component {
         });
     }
 
-    // get details from foursquare
-
-    getDetailsForPlace = (id) => {
-        Foursquare.get('venues/' + id)
-            .then(json => {
-                const details = json.data.response.venue;
-                if (details.length) {
-                    return details
-                } else {
-                    return 'No details found.'
-                }
-            })
-            .catch(error => {
-                toast.error('Error occured while fetching details from Foursquare.');
-            });
-    }
-
     render() {
         return (
             <Accordion className='list-places' styled>

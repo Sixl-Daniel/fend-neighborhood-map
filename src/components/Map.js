@@ -11,7 +11,7 @@ class Map extends Component {
         const googleMapsSrc = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCA5F0pGoVUQo0ZTtUInz6Kd_XfmOW3rAI&callback=onGoogleMapsLoaded';
         window.onGoogleMapsLoaded = this.onGoogleMapsLoaded;
         loadScript(googleMapsSrc);
-        const googleMapsLoadingTimer = window.setTimeout(() => {
+        window.setTimeout(() => {
             if (!window.google) {
                 toast.error('There was an error loading Google Maps..');
             }
@@ -73,7 +73,7 @@ class Map extends Component {
                 content: infoWindowContent
             });
             const marker = new GM.Marker({
-                position: { lat: place.venue.location.lat, lng: place.venue.location.lng },
+                position: { lat: p.location.lat, lng: p.location.lng },
                 map: map,
                 title: p.name,
                 animation: animation,
@@ -94,7 +94,7 @@ class Map extends Component {
 
         // fit map in boundaries
         map.fitBounds(bounds);
-        map.setCenter(bounds.getCenter());
+
     }
 
     render() {
