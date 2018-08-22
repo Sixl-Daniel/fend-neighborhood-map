@@ -1,7 +1,17 @@
 <div align="center">
-    <h1>🗺️<br>Neighborhood Map</h1>
-    <p><strong>Neighborhood Map</strong> is the eighth project for the <strong>Udacity Frontend Developer Nanodegree Program.</strong></p>
-    <p><strong><a href="https://fend-neighborhood-map.netlify.com/" target="_blank" rel="noopener noreferrer">⭐ Show a demo of this app ⭐</a></strong></p>
+<h1>🗺️<br>Neighborhood Map</h1>
+<p>
+<a href="https://www.codacy.com/project/sixl.daniel/fend-neighborhood-map/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sixl-Daniel/fend-neighborhood-map&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/bca2db8857524055bc7542976b75429f" alt="Codacy - Code Quality Status"></a>
+<a href="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map"><img src="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map/status.svg" alt="David Dependency Management - Dependencies Status"></a><br>
+<a href="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map?type=dev"><img src="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map/dev-status.svg" alt="David Dependency Management - DevDependencies Status"></a>
+<a href="https://ci.appveyor.com/project/Sixl-Daniel/fend-neighborhood-map"><img src="https://ci.appveyor.com/api/projects/status/n5kica58k102kysh?svg=true" alt="AppVeyor - Build Status"></a>
+</p>
+<p><a href="https://app.netlify.com/start/deploy?repository=https://github.com/Sixl-Daniel/fend-neighborhood-map"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a></p>
+
+
+
+<p><strong>Neighborhood Map</strong> is the eighth project for the <strong>Udacity Frontend Developer Nanodegree Program.</strong></p>
+<p><strong><a href="https://fend-neighborhood-map.netlify.com/" target="_blank" rel="noopener noreferrer">⭐ Show a demo of this app ⭐</a></strong></p>
 </div>
 
 ## Table of contents
@@ -70,6 +80,8 @@ You can use a static web hosting service like [surge](http://surge.sh/), [netlif
 ## Built With
 
 * [Create React App](https://github.com/facebook/create-react-app)
+* [Semantic-UI-React](https://github.com/Semantic-Org/Semantic-UI-React)
+* [React Toastify](https://github.com/fkhadra/react-toastify)
 
 <a href="https://www.netlify.com">
   <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"/>
@@ -104,3 +116,6 @@ https://stackoverflow.com/questions/6566456/how-to-serialize-an-object-into-a-li
 
 * Resize svg icon for google map marker
 https://stackoverflow.com/questions/23264872/resize-svg-icon-for-google-map-marker
+
+* Making Google Maps work with React
+https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/
