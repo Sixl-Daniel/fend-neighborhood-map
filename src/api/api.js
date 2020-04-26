@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Google Maps
 
-export const GoogleMapsApiUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCA5F0pGoVUQo0ZTtUInz6Kd_XfmOW3rAI&callback=onGoogleMapsLoaded';
+export const GoogleMapsApiUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCtycvmNiAf4r__uFcZoy2gbGbiWDREPOQ&callback=onGoogleMapsLoaded';
 
 // Foursquare
 
