@@ -2,8 +2,6 @@
 <h1>🗺️<br>Neighborhood Map</h1>
 <p>
 <a href="https://www.codacy.com/project/sixl.daniel/fend-neighborhood-map/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sixl-Daniel/fend-neighborhood-map&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/bca2db8857524055bc7542976b75429f" alt="Codacy - Code Quality Status"></a>
-<a href="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map"><img src="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map/status.svg" alt="David Dependency Management - Dependencies Status"></a><br>
-<a href="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map?type=dev"><img src="https://david-dm.org/Sixl-Daniel/fend-neighborhood-map/dev-status.svg" alt="David Dependency Management - DevDependencies Status"></a>
 <a href="https://ci.appveyor.com/project/Sixl-Daniel/fend-neighborhood-map"><img src="https://ci.appveyor.com/api/projects/status/n5kica58k102kysh?svg=true" alt="AppVeyor - Build Status"></a>
 </p>
 <p><a href="https://app.netlify.com/start/deploy?repository=https://github.com/Sixl-Daniel/fend-neighborhood-map"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a></p>
